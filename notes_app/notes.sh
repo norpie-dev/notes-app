@@ -26,7 +26,12 @@ makepdf() {
     if [[ ! -d "$COMPILEDNOTESDIR/$1" ]]; then
         mkdir -p "$COMPILEDNOTESDIR/$1"
     fi
-    pandoc "$madepath" -f markdown -o "$COMPILEDNOTESDIR/$1/$2 - $3.pdf" --pdf-engine=xelatex --include-in-header $FONTSDIR -s --toc 
+    if [[ $3 == *"essay"* ]]; then
+	pandoc "$madepath" -f markdown -o "$COMPILEDNOTESDIR/$1/$2 - $3.pdf" --pdf-engine=xelatex --include-in-header $FONTSDIR -s 
+    else
+	cd "$NOTESDIR/$1/$2/"
+	pandoc "$madepath" -f markdown -o "$COMPILEDNOTESDIR/$1/$2 - $3.pdf" --pdf-engine=xelatex --include-in-header $FONTSDIR -s --toc 
+    fi
 }
 
 #if no arguments were sent
