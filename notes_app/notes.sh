@@ -5,7 +5,7 @@ COMPILEDNOTESDIR=~/Compiled\ Notes
 
 FONTSDIR=~/.notes_data/font.tex
 
-USAGE="notes [read|edit|create|del|compile] [class] [module] [note]"
+USAGE="notes [read|edit|create|del|compile|sync] [class] [module] [note]"
 
 if [[ -d $COMPILEDNOTESDIR ]]; then
     mkdir -p "$COMPILEDNOTESDIR"
