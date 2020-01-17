@@ -13,18 +13,6 @@ fi
 cp notes_app/notes.sh /bin/notes
 chmod +x /bin/notes
 
-if [[ ! -e $NOTESDIR ]]; then
-    mkdir "$NOTESDIR"
-fi
-
-if [[ ! -e $COMPILEDNOTESDIR ]]; then
-    mkdir "$COMPILEDNOTESDIR"
-fi
-
-if [[ ! -e $FONTSDIR ]]; then
-    mkdir "$FONTSDIR"
-fi
+cp notes_app/fonts/font.tex $FONTSDIR
 
 chown "$SUDO_USER":"$SUDO_USER" /home/"$SUDO_USER"/*
-
-cp notes_app/fonts/font.tex $FONTSDIR

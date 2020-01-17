@@ -38,8 +38,16 @@ makepdf() {
 if [[ $# -eq 0 ]]; then 
     echo "$USAGE"
 #if 1 argument was sent
-elif [[ $# -eq 1 ]]; then 
-    if [[ $1 = "read" ]] || [[ $1 = "edit" ]] || [[ $1 = "create" ]] || [[ $1 = "del" ]] || [[ $1 = "compile" ]]; then
+elif [[ $# -eq 1 ]]; then
+    if [[ $1 = "sync" ]]; then
+    	echo "Synching..."
+	cd "$NOTESDIR"
+	git add -A
+	git commit -m "Syncronization"
+	git pull
+	git push
+	echo "Sync done."
+    elif [[ $1 = "read" ]] || [[ $1 = "edit" ]] || [[ $1 = "create" ]] || [[ $1 = "del" ]] || [[ $1 = "compile" ]]; then
         echo $USAGE
         echo "list of classes:"
         ls $NOTESDIR
