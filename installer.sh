@@ -10,6 +10,10 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
+mkdir $FONTSDIR
+mkdir $NOTESDIR
+mkdir $COMPILEDNOTESDIR
+
 cp notes_app/notes.sh /bin/notes
 chmod +x /bin/notes
 
